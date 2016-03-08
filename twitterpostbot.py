@@ -14,12 +14,12 @@ api = tweepy.API(auth)
 
 
 keywords = [
-        "%22rt to%22", "rt and win", "retweet and win",
-    "rt for", "rt 4", "retweet to"
+        "rt to win", "rt and win", "retweet and win",
+    "rt for", "rt 4", "retweet to win"
 ]
 
 bannedwords = [
-    "vote","bot"
+    "vote","bot","bieber"
     ]
 
 
