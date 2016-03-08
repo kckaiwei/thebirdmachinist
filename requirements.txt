@@ -1,5 +1,4 @@
 oauthlib==1.0.3
-pygame==1.9.1
 requests==2.9.1
 requests-oauthlib==0.6.1
 six==1.10.0
