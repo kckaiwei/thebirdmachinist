@@ -12,7 +12,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
 
 keywords = [
-        "rt to", "rt and win", "retweet and win",
+        "%22rt to%22", "rt and win", "retweet and win",
     "rt for", "rt 4", "retweet to"
 ]
 
