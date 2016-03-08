@@ -7,9 +7,11 @@ CONSUMER_SECRET = keys['CONSUMER_SECRET']
 ACCESS_TOKEN = keys['ACCESS_KEY']
 ACCESS_TOKEN_SECRET = keys['ACCESS_SECRET']
 
+
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
+
 
 keywords = [
         "%22rt to%22", "rt and win", "retweet and win",
@@ -22,6 +24,7 @@ bannedwords = [
 
 
 def search(twts):
+    tweeted = False
     for i in twts:
         if not any(k in i.text.lower() for k in keywords) or any(k in i.text.lower() for k in bannedwords):
             continue
@@ -29,6 +32,7 @@ def search(twts):
         try:
             api.retweet(i.id)
             print "JUST RETWEETED " + (i.text)
+            tweeted = True
         except:
             print "Hm... Something went wrong.\nYou've probably already retweeted this."
         # Follows
@@ -49,10 +53,16 @@ def search(twts):
 
         # This next part favorites tweets if it has to
         if "fav" in i.text or "Fav" in i.text or "FAV" in i.text:
-            api.create_favorite(i.id)
-            print "JUST FAVORITED " + (i.text)
+            try: 
+                api.create_favorite(i.id)
+                print "JUST FAVORITED " + (i.text)
+            except:
+                print "Must have already favorited!"
         # This part waits a minute before moving onto the next one.
-        time.sleep(300)
+        if tweeted == True:
+            time.sleep(480)
+            tweeted = False
+        tweeted = False
 
 
 def run():
