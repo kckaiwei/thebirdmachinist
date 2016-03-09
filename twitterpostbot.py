@@ -59,7 +59,7 @@ def search(twts):
         # Tweet Failed
         except:
             print "Hm... Something went wrong.\nYou've probably already retweeted this."
-            failure ++
+            failure = failure + 1
         # Sleeps only if Tweet is successful
         if failure == 15:
             time.sleep(120)
