@@ -63,7 +63,7 @@ def search(twts):
         # Sleeps only if Tweet is successful
         if failure == 15:
             time.sleep(120)
-            failure = 0
+            break
         if tweeted == True:
             print "Sleeping"
             time.sleep(480)
