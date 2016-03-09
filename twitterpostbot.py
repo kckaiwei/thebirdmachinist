@@ -64,7 +64,6 @@ def search(twts):
         if tweeted == True:
             print "Sleeping"
             time.sleep(480)
-            tweeted = False
         tweeted = False
 
 
