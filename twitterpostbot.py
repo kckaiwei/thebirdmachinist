@@ -44,7 +44,7 @@ def search(twts):
                 api.retweet(i.id)
                 print "JUST RETWEETED " + (i.text)
                 tweeted = True
-                if "follow" in i.text or "Follow" in i.text or "FOLLOW" in i.text:
+                if "follow" in i.text or "flw" in i.text or "FLW" in i.text or "Follow" in i.text or "FOLLOW" in i.text:
                 # This part follows the actual contest-holder, instead of some random person who retweeted their contest
                     tweet = i.text
                     if tweet[0:3] == "RT ":
