@@ -22,6 +22,7 @@ bannedwords = [
     "vote","bot","bieber"
     ]
 
+running = True
 
 def search(twts):
     tweeted = False
@@ -69,5 +70,5 @@ def run():
     for key in keywords:
         search(api.search(q=key))
 
-
-run()
+while 1==1:
+    run()
