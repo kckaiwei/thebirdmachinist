@@ -37,8 +37,6 @@ def search(twts):
         if not any(k in i.text.lower() for k in keywords) or any(k in i.text.lower() for k in bannedwords):
             continue
         # Retweets
-
-
         if str(i.id) not in tweets_replied:
             tweets_replied.append(i.id)
             print "Appended"
