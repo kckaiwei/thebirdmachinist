@@ -1,1 +1,1 @@
-bot: python twitterpostbot.py -i json-rpc
+web: python twitterpostbot.py -i json-rpc
