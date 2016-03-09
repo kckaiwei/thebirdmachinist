@@ -1,3 +1,1 @@
-bot: python twitterpostbot.py $PORT
-heroku ps:scale web=0
-heroku ps:scale bot=1
+bot: python twitterpostbot.py -i json-rpc
