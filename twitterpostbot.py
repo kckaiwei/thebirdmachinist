@@ -24,6 +24,7 @@ bannedwords = [
 running = True
 
 def search(twts):
+    failure = 0
     tweeted = False
     for i in twts:
         if not any(k in i.text.lower() for k in keywords) or any(k in i.text.lower() for k in bannedwords):
@@ -58,8 +59,11 @@ def search(twts):
         # Tweet Failed
         except:
             print "Hm... Something went wrong.\nYou've probably already retweeted this."
+            failure ++
         # Sleeps only if Tweet is successful
-       
+        if failure == 15:
+            time.sleep(120)
+            failure = 0
         if tweeted == True:
             print "Sleeping"
             time.sleep(480)
