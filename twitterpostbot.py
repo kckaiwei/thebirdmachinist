@@ -40,12 +40,12 @@ def search(twts):
 
 
         if str(i.id) not in tweets_replied:
+            tweets_replied.append(i.id)
+            print "Appended"
             try:
                 api.retweet(i.id)
                 print "JUST RETWEETED " + (i.text)
                 tweeted = True
-                tweets_replied.append(i.id)
-                print "Appended"
                 if "follow" in i.text or "Follow" in i.text or "FOLLOW" in i.text:
                 # This part follows the actual contest-holder, instead of some random person who retweeted their contest
                     tweet = i.text
@@ -70,8 +70,9 @@ def search(twts):
                             print "Must have already favorited!"
             # Tweet Failed
             except:
-                print "Hm... Something went wrong.\nYou've probably already retweeted this."
                 failure = failure + 1
+                print "Hm... Something went wrong.\nYou've probably already retweeted this."
+
             with open("tweets_replied.txt" , "w") as f:
                 for tweet in tweets_replied:
                     f.write(str(tweet) + "\n")
