@@ -18,10 +18,8 @@ keywords = [
 ]
 
 bannedwords = [
-    "vote","bot","bieber"
+    "vote","bot","bieber","followers", "followss"
     ]
-
-running = True
 
 def search(twts):
     failure = 0
@@ -66,7 +64,7 @@ def search(twts):
                             print "JUST FAVORITED " + (i.text)
                         except:
                             print "Must have already favorited!"
-            # Tweet Failed
+            # Tweet fails, adds failure count to prevent going over rate limit
             except:
                 failure = failure + 1
                 print "Hm... Something went wrong.\nYou've probably already retweeted this."
